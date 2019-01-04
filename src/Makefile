@@ -1,4 +1,3 @@
-CC = gcc
 CFLAGS = -Wall `idris --include` `pkg-config --cflags SDL2_gfx`
 
 sdl2.o: config sdl2.c sdl2.h
