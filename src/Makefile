@@ -7,7 +7,7 @@ sdl2.o: config sdl2.c sdl2.h
 config:
 	echo "%flag C \"`pkg-config --libs SDL2`\"" > Graphics/Config.idr
 	echo "%flag C \"`pkg-config --cflags SDL2`\"" >> Graphics/Config.idr
-	echo "%flag C \"`pkg-config --libs SDL2_gfx`\"" > Graphics/Config.idr
+	echo "%flag C \"`pkg-config --libs SDL2_gfx`\"" >> Graphics/Config.idr
 	echo "%flag C \"`pkg-config --cflags SDL2_gfx`\"" >> Graphics/Config.idr
 
 .PHONY: clean
