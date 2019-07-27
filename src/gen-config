@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+sdl2_libs="$(pkg-config --libs sdl2)"
+sdl2_cflags="$(pkg-config --cflags sdl2)"
+sdl2_gfx_libs="$(pkg-config --libs SDL2_gfx)"
+sdl2_gfx_cflags="$(pkg-config --cflags SDL2_gfx)"
+
+cat <<! > Graphics/Config.idr
+%flag C "${sdl2_libs}"
+%flag C "${sdl2_cflags}"
+%flag C "${sdl2_gfx_libs}"
+%flag C "${sdl2_gfx_cflags}"
+!

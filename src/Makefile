@@ -1,15 +1,14 @@
 CC = gcc
 CFLAGS = -Wall `idris --include` `pkg-config --cflags SDL2_gfx`
 
-sdl2.o: config sdl2.c sdl2.h
+.PHONY: all
+all: Graphics/Config.idr sdl2.o
 
-.PHONY: config
-config:
-	echo "%flag C \"`pkg-config --libs sdl2`\"" > Graphics/Config.idr
-	echo "%flag C \"`pkg-config --cflags sdl2`\"" >> Graphics/Config.idr
-	echo "%flag C \"`pkg-config --libs SDL2_gfx`\"" >> Graphics/Config.idr
-	echo "%flag C \"`pkg-config --cflags SDL2_gfx`\"" >> Graphics/Config.idr
+sdl2.o: Graphics/Config.idr sdl2.c sdl2.h
+
+Graphics/Config.idr:
+	./gen-config
 
 .PHONY: clean
 clean:
-	rm -f sdl2.o
+	rm -f Graphics/Config.idr sdl2.o
