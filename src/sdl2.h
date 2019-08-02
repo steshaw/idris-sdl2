@@ -1,6 +1,7 @@
 #ifndef SDL2_H__
 #define SDL2_H__
 
+#define SDL_DISABLE_IMMINTRIN_H 1
 #include <SDL.h>
 #include <idris_rts.h>
 
